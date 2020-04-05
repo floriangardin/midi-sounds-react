@@ -893,20 +893,20 @@ var MIDISounds = function (_React$Component) {
     }
   }, {
     key: 'playChordAt',
-    value: function playChordAt(when, instrument, pitches, duration) {
+    value: function playChordAt(when, instrument, pitches, duration, volume) {
       var info = this.player.loader.instrumentInfo(instrument);
       if (window[info.variable]) {
-        this.player.queueChord(this.audioContext, this.equalizer.input, window[info.variable], when, pitches, duration, this.volumeInstrumentAdjust(instrument));
+        this.player.queueChord(this.audioContext, this.equalizer.input, window[info.variable], when, pitches, duration, volume/120);
       } else {
         this.cacheInstrument(instrument);
       }
     }
   }, {
     key: 'playStrumUpAt',
-    value: function playStrumUpAt(when, instrument, pitches, duration) {
+    value: function playStrumUpAt(when, instrument, pitches, duration, volume) {
       var info = this.player.loader.instrumentInfo(instrument);
       if (window[info.variable]) {
-        this.player.queueStrumUp(this.audioContext, this.equalizer.input, window[info.variable], when, pitches, duration, this.volumeInstrumentAdjust(instrument));
+        this.player.queueStrumUp(this.audioContext, this.equalizer.input, window[info.variable], when, pitches, duration, volume/120);
       } else {
         this.cacheInstrument(instrument);
       }
