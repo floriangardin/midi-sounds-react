@@ -709,10 +709,10 @@ class MIDISounds extends React.Component {
       }
     }
   }
-  playChordAt(when, instrument, pitches, duration) {
+  playChordAt(when, instrument, pitches, duration, volume) {
     var info = this.player.loader.instrumentInfo(instrument);
     if (window[info.variable]) {
-      this.player.queueChord(this.audioContext, this.equalizer.input, window[info.variable], when, pitches, duration, this.volumeInstrumentAdjust(instrument));
+      this.player.queueChord(this.audioContext, this.equalizer.input, window[info.variable], when, pitches, duration, volume/120);
     } else {
       this.cacheInstrument(instrument);
     }
